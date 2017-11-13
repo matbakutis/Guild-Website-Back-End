@@ -1,12 +1,12 @@
 require 'sinatra/base'
 
 require './controllers/ApplicationController'
-require './controllers/ViewerController'
-require './controllers/DevController'
+require './controllers/CreateController'
 
 require './models/GuildModel'
+require './models/MythicModel'
+require './models/HeroicModel'
+require './models/RBGModel'
 
-map('/') {run ApplicationController}
-map('/') {run ViewerController}
-map('/create') {run DevController}
+map('/create') {run CreateController}
 
