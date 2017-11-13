@@ -13,7 +13,6 @@ GEM
       minitest (~> 5.1)
       tzinfo (~> 1.1)
     arel (8.0.0)
-    bcrypt (3.1.11)
     coderay (1.1.2)
     concurrent-ruby (1.0.5)
     i18n (0.9.1)
@@ -29,7 +28,6 @@ GEM
     rack (2.0.3)
     rack-protection (2.0.0)
       rack
-    rake (12.2.1)
     sinatra (2.0.0)
       mustermann (~> 1.0)
       rack (~> 2.0)
@@ -48,14 +46,12 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bcrypt
   json
   pg
   pry
-  rake
   sinatra
   sinatra-activerecord
-  sinatra-cross_origin (~> 0.3.1)
+  sinatra-cross_origin
 
 BUNDLED WITH
    1.16.0
