@@ -19,7 +19,8 @@ CREATE TABLE mythic (
 	player_name TEXT,
 	img_link TEXT,
 	note TEXT,
-	role TEXT
+	role TEXT,
+	guild_id INTEGER REFERENCES guild(id)
 );
 
 CREATE TABLE heroic (
@@ -27,7 +28,8 @@ CREATE TABLE heroic (
 	player_name TEXT,
 	img_link TEXT,
 	note TEXT,
-	role TEXT
+	role TEXT,
+	guild_id INTEGER REFERENCES guild(id)
 );
 
 CREATE TABLE rbg (
@@ -35,5 +37,6 @@ CREATE TABLE rbg (
 	player_name TEXT,
 	img_link TEXT,
 	note TEXT,
-	role TEXT
+	role TEXT,
+	guild_id INTEGER REFERENCES guild(id)
 );
