@@ -37,21 +37,36 @@ class CreateController < ApplicationController
 	post '/players' do
 		payload = params 
 		payload = JSON.parse(request.body.read).symbolize_keys
-
-		@player = 
-		
-		@player.save
+		payload[:team].each_with_index	{ |value, index| 
+			if value == 'Mythic'
+				@player = Mythic.new
+				@player.player_name = payload[:name][index]
+				@player.img_link = payload[:img][index]
+				@player.role = payload[:role][index]
+				@player.guild_id = payload[:guildId]
+				@player.save
+			elsif value == 'Heroic'
+				@player = Heroic.new
+				@player.player_name = payload[:name][index]
+				@player.img_link = payload[:img][index]
+				@player.role = payload[:role][index]
+				@player.guild_id = payload[:guildId]
+				@player.save
+			elsif value == 'RBG'
+				@player = RBG.new
+				@player.player_name = payload[:name][index]
+				@player.img_link = payload[:img][index]
+				@player.role = payload[:role][index]
+				@player.guild_id = payload[:guildId]
+				@player.save
+			end
+		 } 
 		some_hash = {}
-		some_hash[:id] = @.id.to_i
+		some_hash[:id] = 'saved'
 		some_hash.to_json
 	end
 
 end
-
-player_name
-img_link
-role
-guild_id 
 
 
 
