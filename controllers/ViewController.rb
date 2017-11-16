@@ -25,6 +25,21 @@ class ViewController < ApplicationController
 		some_hash.to_json
 	end
 
+	get '/players/:id' do
+		@guild = Guild.find_by(id: params[:id])
+		@mythic = Mythic.where(guild_id: params[:id])
+		@heroic = Heroic.where(guild_id: params[:id])
+		@rbg = RBG.where(guild_id: params[:id])
+		some_hash = {}
+		some_hash[:aboutMythic] = @guild.about_mythic
+		some_hash[:aboutHeroic] = @guild.about_heroic
+		some_hash[:aboutRBG] = @guild.about_rbg
+		some_hash[:mythicPlayers] = @mythic
+		some_hash[:heroicPlayers] = @heroic
+		some_hash[:rbgPlayers] = @rbg
+		some_hash.to_json
+	end
+
 end
 
 
