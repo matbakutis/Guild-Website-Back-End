@@ -1,3 +1,5 @@
+-- Migrations to creat db and tables
+
 CREATE DATABASE guildy;
 
 \c guildy

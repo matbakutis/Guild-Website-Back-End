@@ -1,9 +1,11 @@
 class CreateController < ApplicationController
 
+	# Should not be accessed by anything, just to test
 	get '/' do
 		'HELLO'
 	end
 
+	# Saves guild info
 	post '/guild' do
 		payload = params 
 		payload = JSON.parse(request.body.read).symbolize_keys
@@ -18,6 +20,7 @@ class CreateController < ApplicationController
 		some_hash.to_json
 	end
 
+	# Saves the team info but not the players
 	post '/team' do
 		payload = params 
 		payload = JSON.parse(request.body.read).symbolize_keys
@@ -34,13 +37,17 @@ class CreateController < ApplicationController
 		some_hash.to_json
 	end
 
+	# Saves all the players per team in the guild
 	post '/players' do
 		payload = params 
 		payload = JSON.parse(request.body.read).symbolize_keys
+
+		# Loops through each player and fits them into each teams table
 		payload[:team].each_with_index	{ |value, index| 
 			if value == 'Mythic'
 				@player = Mythic.new
 				@player.player_name = payload[:name][index]
+				p payload[:img][index]
 				@player.img_link = payload[:img][index]
 				@player.role = payload[:role][index]
 				@player.guild_id = payload[:guildId]
@@ -61,6 +68,7 @@ class CreateController < ApplicationController
 				@player.save
 			end
 		 } 
+
 		some_hash = {}
 		some_hash[:id] = 'saved'
 		some_hash.to_json

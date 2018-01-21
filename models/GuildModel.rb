@@ -1,3 +1,4 @@
+# Guild model with team associations
 class Guild < ActiveRecord::Base
 	has_many :mythic
 	has_many :heroic

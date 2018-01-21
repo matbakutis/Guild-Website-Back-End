@@ -14,10 +14,10 @@ class ApplicationController < Sinatra::Base
 	set :method_override, true
 	set :allow_methods, [:get, :post, :options]
 
+	# Allows methods and fixes header problem
 	before do
 		headers['Access-Control-Allow-Origin'] = '*'
 		response.headers["Access-Control-Allow-Methods"] = "HEAD,GET,POST,PUT,PATCH,DELETE,OPTIONS"
 	end
-
 
 end

@@ -1,9 +1,11 @@
 class ViewController < ApplicationController
 
+	# Should not be accessed by anything, just to test
 	get '/' do
 		'HELLO'
 	end
 
+	# Returns a hash/array of all of the guild ids and names
 	get '/guilds' do
 		@guilds = Guild.all
 		final_array = []
@@ -13,6 +15,7 @@ class ViewController < ApplicationController
 		some_hash.to_json
 	end
 
+	# Returns guild info by id
 	get '/guild/:id' do
 		@guild = Guild.find_by(id: params[:id])
 		some_hash = {}
@@ -25,6 +28,7 @@ class ViewController < ApplicationController
 		some_hash.to_json
 	end
 
+	# Returns all the players by guild id
 	get '/players/:id' do
 		@guild = Guild.find_by(id: params[:id])
 		@mythic = Mythic.where(guild_id: params[:id])

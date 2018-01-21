@@ -1,3 +1,4 @@
+# controllers and models required
 require 'sinatra/base'
 
 require './controllers/ApplicationController'
