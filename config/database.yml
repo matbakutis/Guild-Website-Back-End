@@ -1,0 +1,6 @@
+development:
+  adapter: postgresql
+  database: guildy
+  username: <%= ENV['PG_USER']%>
+  password: <%= ENV['PG_PASS']%>
+  host: localhost
