@@ -1,3 +1,4 @@
+# dev environment
 development:
   adapter: postgresql
   database: guildy

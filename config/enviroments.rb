@@ -1,3 +1,4 @@
+# db environment, why is the file spelled enviroment? who knows...
 configure :production, :development do
 	db = URI.parse(ENV['DATABASE_URL'] || 'postgres://localhost/guildy')
 
